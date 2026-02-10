@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitality | Performance Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #020617;
+        }
+        .card-glass {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .progress-ring {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .glow-cyan { box-shadow: 0 0 20px rgba(6, 182, 212, 0.2); }
+        .glow-rose { box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
+        .glow-violet { box-shadow: 0 0 20px rgba(139, 92, 246, 0.2); }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen pb-12">
+
+    <!-- Navigation -->
+    <nav class="px-6 py-6 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center card-glass rounded-3xl px-6 py-3">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center font-bold text-slate-950 italic">V</div>
+                <span class="text-xl font-extrabold tracking-tight">VITALITY</span>
+            </div>
+            <div class="flex gap-4 items-center">
+                <span class="hidden md:block text-sm font-medium text-slate-400">Tuesday, 10 Feb</span>
+                <div class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 overflow-hidden">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <main class="max-w-5xl mx-auto px-6 space-y-8">
+        
+        <!-- Header -->
+        <header class="space-y-2">
+            <h1 class="text-3xl font-bold">Good Morning, Alex</h1>
+            <p class="text-slate-400">You're 65% of the way to your daily goal. Keep pushing!</p>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Water Intake -->
+            <div class="card-glass p-6 rounded-[2.5rem] flex flex-col items-center text-center space-y-4 glow-cyan">
+                <div class="relative w-32 h-32">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <circle class="text-slate-800" stroke-width="8" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                        <circle class="text-cyan-500 progress-ring" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="75" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center flex-col">
+                        <span class="text-2xl font-bold">2.1</span>
+                        <span class="text-[10px] text-slate-400 uppercase font-bold">Liters</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Water Intake</h3>
+                    <p class="text-slate-400 text-sm">Goal: 3.5L</p>
+                </div>
+                <button class="w-full py-3 bg-cyan-500/10 text-cyan-400 rounded-2xl font-bold hover:bg-cyan-500 hover:text-white transition">+ Add 250ml</button>
+            </div>
+
+            <!-- Calories -->
+            <div class="card-glass p-6 rounded-[2.5rem] flex flex-col items-center text-center space-y-4 glow-rose">
+                <div class="relative w-32 h-32">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <circle class="text-slate-800" stroke-width="8" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                        <circle class="text-rose-500 progress-ring" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="110" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center flex-col">
+                        <span class="text-2xl font-bold">1,450</span>
+                        <span class="text-[10px] text-slate-400 uppercase font-bold">kcal</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Calories</h3>
+                    <p class="text-slate-400 text-sm">Remaining: 850 kcal</p>
+                </div>
+                <button class="w-full py-3 bg-rose-500/10 text-rose-400 rounded-2xl font-bold hover:bg-rose-500 hover:text-white transition">Log Meal</button>
+            </div>
+
+            <!-- Gym Session -->
+            <div class="card-glass p-6 rounded-[2.5rem] flex flex-col items-center text-center space-y-4 glow-violet">
+                <div class="w-32 h-32 bg-violet-500/10 rounded-full flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-violet-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Today's Session</h3>
+                    <p class="text-slate-400 text-sm italic">Push Day (Chest/Tris)</p>
+                </div>
+                <button id="gymToggle" class="w-full py-3 bg-violet-600 text-white rounded-2xl font-bold hover:bg-violet-500 transition shadow-lg shadow-violet-500/20">Start Workout</button>
+            </div>
+
+        </div>
+
+        <!-- Weekly Progress -->
+        <section class="card-glass p-8 rounded-[2.5rem] space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-bold">Weekly Activity</h2>
+                <div class="flex gap-2">
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase">
+                        <span class="w-2 h-2 rounded-full bg-cyan-500"></span> Water
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase">
+                        <span class="w-2 h-2 rounded-full bg-rose-500"></span> Calories
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex items-end justify-between h-48 gap-2 pt-4">
+                <!-- Simple Bar Chart Visualization -->
+                <div class="flex flex-col items-center flex-1 gap-2">
+                    <div class="w-full bg-slate-800 rounded-full overflow-hidden flex flex-col justify-end h-32">
+                        <div class="bg-cyan-500 w-full h-[80%] rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase">Mon</span>
+                </div>
+                <div class="flex flex-col items-center flex-1 gap-2">
+                    <div class="w-full bg-slate-800 rounded-full overflow-hidden flex flex-col justify-end h-32">
+                        <div class="bg-cyan-500 w-full h-[65%] rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase">Tue</span>
+                </div>
+                <div class="flex flex-col items-center flex-1 gap-2">
+                    <div class="w-full bg-slate-800 rounded-full overflow-hidden flex flex-col justify-end h-32">
+                        <div class="bg-slate-700 w-full h-[0%] rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase">Wed</span>
+                </div>
+                <div class="flex flex-col items-center flex-1 gap-2">
+                    <div class="w-full bg-slate-800 rounded-full overflow-hidden flex flex-col justify-end h-32">
+                        <div class="bg-slate-700 w-full h-[0%] rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase">Thu</span>
+                </div>
+                <div class="flex flex-col items-center flex-1 gap-2">
+                    <div class="w-full bg-slate-800 rounded-full overflow-hidden flex flex-col justify-end h-32">
+                        <div class="bg-slate-700 w-full h-[0%] rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase">Fri</span>
+                </div>
+                <div class="flex flex-col items-center flex-1 gap-2">
+                    <div class="w-full bg-slate-800 rounded-full overflow-hidden flex flex-col justify-end h-32">
+                        <div class="bg-slate-700 w-full h-[0%] rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase">Sat</span>
+                </div>
+                <div class="flex flex-col items-center flex-1 gap-2">
+                    <div class="w-full bg-slate-800 rounded-full overflow-hidden flex flex-col justify-end h-32">
+                        <div class="bg-slate-700 w-full h-[0%] rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-500 uppercase">Sun</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Log Food -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card-glass p-8 rounded-[2.5rem] space-y-4">
+                <h3 class="font-bold text-lg">Recent Meals</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl">
+                        <div>
+                            <div class="font-bold">Oatmeal & Berries</div>
+                            <div class="text-xs text-slate-400 uppercase">Breakfast • 8:30 AM</div>
+                        </div>
+                        <div class="text-rose-400 font-bold">340 kcal</div>
+                    </div>
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-2xl">
+                        <div>
+                            <div class="font-bold">Chicken Salad</div>
+                            <div class="text-xs text-slate-400 uppercase">Lunch • 1:15 PM</div>
+                        </div>
+                        <div class="text-rose-400 font-bold">510 kcal</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-glass p-8 rounded-[2.5rem] space-y-4">
+                <h3 class="font-bold text-lg">Current Program</h3>
+                <div class="p-6 bg-violet-600/20 border border-violet-500/20 rounded-3xl">
+                    <div class="text-sm font-bold text-violet-400 uppercase mb-2">Hypertrophy Block</div>
+                    <div class="text-2xl font-bold mb-4">Week 4 of 8</div>
+                    <div class="w-full bg-white/10 h-2 rounded-full">
+                        <div class="bg-violet-500 h-2 rounded-full w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple Interaction logic
+        const gymBtn = document.getElementById('gymToggle');
+        let isWorkingOut = false;
+
+        gymBtn.addEventListener('click', () => {
+            isWorkingOut = !isWorkingOut;
+            if (isWorkingOut) {
+                gymBtn.innerText = 'Stop Workout';
+                gymBtn.classList.remove('bg-violet-600');
+                gymBtn.classList.add('bg-red-600');
+            } else {
+                gymBtn.innerText = 'Start Workout';
+                gymBtn.classList.add('bg-violet-600');
+                gymBtn.classList.remove('bg-red-600');
+            }
+        });
+
+        // Animations for cards on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('div, section').forEach(el => {
+            if (el.classList.contains('card-glass')) {
+                el.classList.add('transition', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            }
+        });
+    </script>
+</body>
+</html>
